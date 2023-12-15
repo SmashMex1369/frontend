@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 30;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+body{
+    background-color: aliceblue;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    width:100%;
+}
+
+.header{
+    /*color barra*/
+    background-color:#005377;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+.header.logo{
+    cursor: pointer;
+    width: auto;
+    height: 7px;
+}
+
+img.logo{
+    max-width: 80px;
+    height: auto;  
+    width: auto;
+}
+
+.header.logo img{
+    width: auto;
+    transition: all 0.3s;
+    color: #8de4ff;
+}
+
+.header.logo img:hover{
+    transform: scale(1.3);
+}
