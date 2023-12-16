@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Compadre</title>
+    <link rel="icon" type="image/svg+xml" href="\HTML\IMAGENES\Logo_chico.png" />
+    <link rel="stylesheet" href="\CSS\index.css">
+</head>
+<body>
+    <center>
+        <h1>Tienda de Abarrotes</h1>
+        <img src="\HTML\IMAGENES\Logo_mediano.png" class="imagen">
+    </center>
+    <form id="form" >
+        <div>
+            <label for="user">Nombre de usuario:</label>
+            <input type="text" name="user" id="user">
+            <label for="user" id="lbConfirmacionCorreo"></label>
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password">
+            <label for="password" id="lbConfirmacionPassword"></label>
+        </div>
+        <button type="submit" class="btnSubmit">Enviar</button>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="Loging.js"></script> -->
+</body>
+</html>
