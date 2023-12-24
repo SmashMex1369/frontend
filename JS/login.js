@@ -1,5 +1,5 @@
 const form = document.getElementById('form')
-const URL = 'https://smashmex1369.github.io/frontend:80'
+const URL = 'https://backend-production-3215.up.railway.app'
 
 form.addEventListener('submit', async ( e ) => {
     e.preventDefault()
@@ -18,13 +18,13 @@ form.addEventListener('submit', async ( e ) => {
     
   
     try {
-      const data = await axios.post(URL+"/login", {
+      const data = await axios.post(URL+"/loging", {
         "correo": user,
         "password": password
       })
       if(user=="eje@eje.com"&&password=="123"){
           alert("Bienvenido al sistema "+ user)
-          location.href =URL+'HTML/ADMINISTRADOR/principal_admin.html';
+          location.href ='https://smashmex1369.github.io/frontend/HTML/ADMINISTRADOR/principal_admin.html';
           console.log(data.data);
       }/*else{
           alert("Bienvenido al sistema "+ user)
