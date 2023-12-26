@@ -21,22 +21,33 @@
             </ul>
         </nav>
     </header>
-    <div class="carrusel">
-        <ul>
-            <li><img src="..\IMAGENES\Publicidad1.png" alt="imagen 1"></li>
-            <li><img src="..\IMAGENES\Publicidad2.png" alt="imagen 2"></li>
-            <li><img src="..\IMAGENES\Publicidad3.png" alt="imagen 3"></li>
-            <li><img src="..\IMAGENES\Publicidad4.png" alt="imagen 4"></li>
-        </ul>
+    <div class="contenedor">
+        <div class="Panel" >
+            <h2>Crear Producto</h2>
+            <form id="crear-producto">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br>
+            <label for="precio">Precio:</label><br>
+            <input type="text" id="precio" name="precio"><br>
+            <label for="fotografia">Fotografía:</label><br>
+            <input type="file"  id="fotografia" name="fotografia" accept=".jpg, .jpeg, .png" class="archivo"><br>
+            <label for="categoria">Categoria:</label>
+            <select name="categoria" id="categoria">
+                <option value="Limpieza">Limpieza</option>
+                <option value="Frutas y verduras">Frutas y verduras</option>
+                <option value="Higiene Personal">Higiene Personal</option>
+                <option value="Productos Animales">Productos Animales</option>
+            <input type="submit" value="Crear Producto" id="botonCrear" class="botonesadmin">
+            </select>
+            </form>
+        </div>
     </div>
-
-    <div class="conteiner-items" id="product-list"></div>
 </body>
 <footer>
     <div class="footer">
         <div class="row">
             <ul>
-                <li><a href="crear_admin.html">Crear Producto</a></li>
+                <li><a href="">Crear Producto</a></li>
             </ul>
         </div>
         <div class="row">
@@ -45,5 +56,7 @@
     </div>
 </footer>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="..\..\JS\crud.js"></script>
 <script src="..\..\JS\productos.js"></script>
+
 </html>
