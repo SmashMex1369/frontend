@@ -23,5 +23,43 @@ axios.get(URL+'/listaProductos')
         precioDelProducto.className='price'
         precioDelProducto.textContent = 'Precio: $' + producto.precio;
         elementoProductoInfo.appendChild(precioDelProducto);
+
+        var botonAgregarAlCarrito = document.createElement('button');
+        botonAgregarAlCarrito.textContent = 'Actualizar';
+        botonAgregarAlCarrito.className ='btnadd';
+        botonAgregarAlCarrito.addEventListener('click', function() {
+        var datosProducto = new URLSearchParams();
+            datosProducto.append("id",producto.idProducto);
+            datosProducto.append("nombre",producto.nombre);
+            datosProducto.append("precio",producto.precio);
+            datosProducto.append("categoria",producto.categoria);
+            location.href =''+ datosProducto.toString(); 
+        });
+        elementoProducto.appendChild(botonAgregarAlCarrito);
+
+        var botoneliminar = document.createElement('button');
+        botoneliminar.textContent = 'Eliminar';
+        botoneliminar.className ='btnadd';
+        botoneliminar.addEventListener('click', function() {
+            eliminarProducto(producto.idProducto)
+        });
+        eliminarProducto.appendChild(botoneliminar);
+        listaDeProductos.appendChild(elementoProducto);
     });
 })
+
+.catch(function (error) {
+    console.log(error);
+});
+
+
+function eliminarProducto(_idProducto) {
+    axios.delete(URL + "/borrarProducto/" + _idProducto)
+    .then( function (response) {
+        alert(response.data)
+        location.reload();
+    }).catch(function (error) {
+        alert("EL PRODUCTO ESTA EN EL CARRITO DE UN CLIENTE. ELIMINE EL PRODUCTO DEL CARRITO PRIMERO OwO")
+        console.log(error)
+    });
+}
