@@ -1,5 +1,6 @@
 const form = document.getElementById('form')
 const URL = 'https://backend-production-3215.up.railway.app'
+const CREATE = 201
 
 form.addEventListener('submit', async ( e ) => {
     e.preventDefault()
@@ -26,11 +27,11 @@ form.addEventListener('submit', async ( e ) => {
           alert("Bienvenido al sistema "+ user)
           location.href ='https://smashmex1369.github.io/frontend/HTML/ADMINISTRADOR/principal_admin.html';
           console.log(data.data);
-      }/*else{
+      }else{
           alert("Bienvenido al sistema "+ user)
-          location.href ='http://127.0.0.1:5501/vista_cliente/paginaPrincipal_frutas.html';
+          location.href ='https://smashmex1369.github.io/frontend/HTML/CLIENTE/principal_cliente.html';
           console.log(data.data);
-      }*/
+      }
   
     } catch (error) {
      console.log(error);
