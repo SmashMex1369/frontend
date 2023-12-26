@@ -1,6 +1,24 @@
 const URL = 'https://backend-production-3215.up.railway.app'
-
-axios.get(URL+'/listaProductos')
+var pathname = window.location.pathname;
+var peticion = "";
+switch(pathname){
+    case "/HTML/ADMINISTRADOR/principal_admin.html":
+        peticion=URL+"/listaProductos"
+        break;
+    case "/HTML/ADMINISTRADOR/limpieza_admin.html":
+        peticion=URL+"/listaProductosPorCategoria/Limpieza"
+        break;
+    case "/HTML/ADMINISTRADOR/frutas_admin.html":
+        peticion=URL+"/listaProductosPorCategoria/Frutas y verduras"
+        break;
+    case "/HTML/ADMINISTRADOR/higiene_admin.html":
+        peticion=URL+"/listaProductosPorCategoria/Higiene Personal"
+        break;
+    case "/HTML/ADMINISTRADOR/animales_admin.html":
+        peticion=URL+"/listaProductosPorCategoria/Productos Animales"
+        break;
+}
+axios.get(peticion)
 .then(function(respuesta){
     var productos = respuesta.data;
     var listaDeProductos = document.getElementById('product-list');
@@ -33,7 +51,7 @@ axios.get(URL+'/listaProductos')
             datosProducto.append("nombre",producto.nombre);
             datosProducto.append("precio",producto.precio);
             datosProducto.append("categoria",producto.categoria);
-            location.href =''+ datosProducto.toString(); 
+            location.href ='https://smashmex1369.github.io/frontend/HTML/ADMINISTRADOR/actualizar_admin.html'+ datosProducto.toString(); 
         });
         elementoProducto.appendChild(botonAgregarAlCarrito);
 
