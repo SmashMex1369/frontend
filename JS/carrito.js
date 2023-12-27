@@ -5,7 +5,7 @@ updateCartpdf();
 
 function eliminarDelCarrito(id) {
     console.log('Eliminar del carrito: ' + id);
-    axios.delete(url + '/borrar-producto-carrito/' + id)
+    axios.delete(URL + '/borrar-producto-carrito/' + id)
     .then( function (response) {
         alert(response.data)
         location.reload();
@@ -35,7 +35,7 @@ function updateCart(){
             
             var celdaCantidad = fila.insertCell();
             celdaCantidad.textContent = producto.cantidad;
-            celdaCantidad.contentEditable = 'false'; 
+            celdaCantidad.contentEditable = 'true'; 
 
             var celdaTotal = fila.insertCell();
             celdaTotal.textContent = '$'+producto.precio * producto.cantidad ;
@@ -125,7 +125,7 @@ function descargaTicket(i, f){
     doc.text(i, 2.5, 0.3, null, null, 'center');
     doc.autoTable({ html: '#tabla-pdf' , startY: 0.9, styles:{halign:'center'}});
     
-    axios.get(url +'/carrito')
+    axios.get(URL +'/carrito')
     .then(respuesta =>{
         var total = 0;
         var productos = respuesta.data;
