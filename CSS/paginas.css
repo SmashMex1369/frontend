@@ -179,18 +179,18 @@ img.logo{
     100% {margin-left: -300%;}
 }
 
-.container-items{
+
+#product-list{
     display: grid;
     box-sizing: border-box;
     grid-template-columns: repeat(3, 1fr);
-    /*color contenedor*/
     background-color: #84ce8342;
     gap: 20px;
     max-width: 65%;
     margin: auto;
     margin-top: 25px;
     border-radius: 20px;
-}
+} 
 
 .item{
     border-radius: px;
