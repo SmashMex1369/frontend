@@ -178,3 +178,48 @@ img.logo{
     75% {margin-left: -300%;}
     100% {margin-left: -300%;}
 }
+
+.container-items{
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+    /*color contenedor*/
+    background-color: #84ce8342;
+    gap: 20px;
+    max-width: 65%;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.item{
+    border-radius: px;
+    padding: 50px;
+}
+
+.item:hover{
+    box-shadow: 0, 10px 20px rgba(0,0,0,0.20 green, blue, alpha);
+}
+
+.info-producto{
+    font-weight: 700;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+}
+
+.item img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.item button{
+    font-weight: 700;
+    color: #1b3039;
+    background: #dbd98d;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
