@@ -1,5 +1,6 @@
 const URL = 'https://backend-production-c394.up.railway.app'
 var pathname = window.location.pathname;
+console.log(pathname)
 var peticion = "";
 switch(pathname){
     case "/HTML/ADMINISTRADOR/principal_admin.html":
@@ -18,11 +19,12 @@ switch(pathname){
         peticion=URL+"/listaProductosPorCategoria/Productos Animales"
         break;
 }
+console.log(peticion)
 axios.get(peticion)
 .then(function(respuesta){
     var productos = respuesta.data;
     var listaDeProductos = document.getElementById('product-list');
-    productos.forEach(function(producto){
+    Array.from(productos).forEach(function(producto){
         var elementoProducto = document.createElement('div');
         elementoProducto.className ='item';
 
@@ -61,7 +63,7 @@ axios.get(peticion)
         botoneliminar.addEventListener('click', function() {
             eliminarProducto(producto.idProducto)
         });
-        eliminarProducto.appendChild(botoneliminar);
+        elementoProducto.appendChild(botoneliminar);
         listaDeProductos.appendChild(elementoProducto);
     });
 })

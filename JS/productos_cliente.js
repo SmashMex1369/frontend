@@ -23,7 +23,7 @@ axios.get(peticion)
     var productos = respuesta.data;
     var listaDeProductos = document.getElementById('product-list');
 
-    productos.forEach(function(producto){
+    Array.from(productos).forEach(function(producto){
         var elementoProducto = document.createElement('div');
         elementoProducto.className ='item';
 
