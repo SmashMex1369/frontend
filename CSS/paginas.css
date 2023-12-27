@@ -189,6 +189,7 @@ img.logo{
     max-width: 65%;
     margin: auto;
     margin-top: 25px;
+    border-radius: 20px;
 }
 
 .item{
@@ -222,4 +223,64 @@ img.logo{
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+}
+
+.item button:hover{
+    background-color: #e2f1f8;
+    color: #8AC4FF;
+    transform: scale(1.1);
+}
+
+.item:hover img {
+    transform: scale(1.2);
+}
+
+.modificar{
+    display: block;
+    padding: 25px;
+}
+
+.modificar .formularios{
+    margin: 20px;
+}
+
+.contenedor .Panel{
+    box-shadow: 10px 20px 20px;
+    width: 350px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    padding: 25px;
+    border-radius: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.contenedor .Panel>form>input{
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.contenedor>div{
+    
+    align-items: center;
+    justify-content:center;
+    margin: 0 auto;
+    background-color: #84ce8342;
+    height: fit-content;
+    width: 400px;
+    border-radius: 20px;   
+    padding-top: 10px;
+    gap: 25px;
+    flex: 1 1 300px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.contenedor .botonesadmin{
+    font-weight: 700;
+    color: #1b3039;
+    background: #dbd98d;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    padding: 10px;
 }
