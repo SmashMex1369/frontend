@@ -3,19 +3,19 @@ var pathname = window.location.pathname;
 console.log(pathname)
 var peticion = "";
 switch(pathname){
-    case "/HTML/ADMINISTRADOR/principal_admin.html":
+    case "/frontend/HTML/ADMINISTRADOR/principal_admin.html":
         peticion=URL+"/listaProductos"
         break;
-    case "/HTML/ADMINISTRADOR/limpieza_admin.html":
+    case "/frontend/HTML/ADMINISTRADOR/limpieza_admin.html":
         peticion=URL+"/listaProductosPorCategoria/Limpieza"
         break;
-    case "/HTML/ADMINISTRADOR/frutas_admin.html":
+    case "/frontend/HTML/ADMINISTRADOR/frutas_admin.html":
         peticion=URL+"/listaProductosPorCategoria/Frutas y verduras"
         break;
-    case "/HTML/ADMINISTRADOR/higiene_admin.html":
+    case "/frontend/HTML/ADMINISTRADOR/higiene_admin.html":
         peticion=URL+"/listaProductosPorCategoria/Higiene Personal"
         break;
-    case "/HTML/ADMINISTRADOR/animales_admin.html":
+    case "/frontend/HTML/ADMINISTRADOR/animales_admin.html":
         peticion=URL+"/listaProductosPorCategoria/Productos Animales"
         break;
 }
