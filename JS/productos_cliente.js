@@ -5,7 +5,7 @@ switch(pathname){
     case "/frontend/HTML/CLIENTE/principal_cliente.html":
         peticion=URL+"/listaProductos"
         break;
-    case "/fronend/HTML/CLIENTE/limpieza_cliente.html":
+    case "/frontend/HTML/CLIENTE/limpieza_cliente.html":
         peticion=URL+"/listaProductosPorCategoria/Limpieza"
         break;
     case "/frontend/HTML/CLIENTE/frutas_cliente.html":

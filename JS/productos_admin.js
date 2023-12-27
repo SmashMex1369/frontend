@@ -1,6 +1,6 @@
 const URL = 'https://backend-production-c394.up.railway.app'
 var pathname = window.location.pathname;
-console.log(pathname)
+
 var peticion = "";
 switch(pathname){
     case "/frontend/HTML/ADMINISTRADOR/principal_admin.html":
@@ -19,7 +19,6 @@ switch(pathname){
         peticion=URL+"/listaProductosPorCategoria/Productos Animales"
         break;
 }
-console.log(peticion)
 axios.get(peticion)
 .then(function(respuesta){
     var productos = respuesta.data;
