@@ -19,7 +19,7 @@ form.addEventListener('submit', async ( e ) => {
     
   
     try {
-      const data = await axios.post(URL+"/loging", {
+      const data = await axios.post(URL+"loging", {
         "correo": user,
         "password": password
       })
