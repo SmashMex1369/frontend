@@ -1,6 +1,7 @@
 const URL="https://backend-production-c394.up.railway.app"
 
 updateCart();
+updateCartpdf();
 
 function eliminarDelCarrito(id) {
     console.log('Eliminar del carrito: ' + id);
@@ -12,6 +13,7 @@ function eliminarDelCarrito(id) {
         console.log(error)
     });
     updateCart();
+    updateCartpdf();
 }
 
 function updateCart(){
@@ -61,6 +63,45 @@ function updateCart(){
     });
 }
 
+function updateCartpdf() {
+    axios.get(URL +'/carrito')
+        .then(respuesta => { 
+            var productos = respuesta.data;
+            var tablaDelCarrito = document.getElementById('tabla-pdf');
+    
+            // Limpiar la tabla
+            while (tablaDelCarrito.rows.length > 1) {
+                tablaDelCarrito.deleteRow(1);
+            }
+    
+            // Añadir cada producto a la tabla
+            productos.forEach(function(producto) {
+                var fila = tablaDelCarrito.insertRow();
+    
+            
+    
+                var celdaNombre = fila.insertCell();
+                celdaNombre.textContent = producto.nombre;
+    
+                
+                var celdaCantidad = fila.insertCell();
+                celdaCantidad.textContent = producto.cantidad;
+                celdaCantidad.contentEditable = 'true'; 
+
+                var celdaPrecio = fila.insertCell();
+                celdaPrecio.textContent = '$'+producto.precio;
+
+                var celdaTotal = fila.insertCell();
+                celdaTotal.textContent = '$'+producto.precio * producto.cantidad ;
+    
+
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
 function realizarCheckout(){
     alert('¡Muchas gracias por su compra!\nSe a descargado su recibo de compra');
     var fechaHora = new Date().toLocaleString();
@@ -73,11 +114,26 @@ function realizarCheckout(){
     descargaTicket(inicio, final);
 }
 
-function descargaTicket(){
+function descargaTicket(i, f){
     const { jsPDF } = window.jspdf;
     var doc = new jsPDF();
-
-    doc.text(i, 110, 10, null, null, 'center');
-
-    doc.save("Recibo.pdf");
+    var doc = new jsPDF({
+        unit: "in",
+        format: [5,5]
+    });
+    doc.setFontSize(12);
+    doc.text(i, 2.5, 0.3, null, null, 'center');
+    doc.autoTable({ html: '#tabla-pdf' , startY: 0.9, styles:{halign:'center'}});
+    
+    axios.get(url +'/carrito')
+    .then(respuesta =>{
+        var total = 0;
+        var productos = respuesta.data;
+        productos.forEach(function(producto) {
+            total = total + (producto.cantidad*producto.precio);
+        });
+        doc.text('TOTAL: $'+total,2.5,4.5,null, null,'center');
+        doc.text(f, 2.15, 4.8, null, null, 'center');
+        doc.save("Recibo.pdf");
+    })
 }
