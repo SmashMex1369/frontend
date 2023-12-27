@@ -1,5 +1,5 @@
 const form = document.getElementById('form')
-const URL = 'http://backend-production-c394.up.railway.app/'
+const URL = 'https://backend-production-c394.up.railway.app/'
 const CREATE = 201
 
 form.addEventListener('submit', async ( e ) => {
