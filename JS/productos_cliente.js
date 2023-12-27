@@ -1,4 +1,4 @@
-const URL='https://backend-production-3215.up.railway.app'
+const URL='https://backend-production-c394.up.railway.app'
 var pathname = window.location.pathname;
 var peticion = "";
 switch(pathname){
