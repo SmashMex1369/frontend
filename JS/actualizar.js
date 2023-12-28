@@ -18,7 +18,7 @@ function modificarProducto(_idProducto,_nombre,_precio,categoria,fotografia){
      })
     .then(function (response) {
         alert(response.data)
-        location.reload();
+        location.href="principal_admin.html"
     })
     .catch(function (error) {
         console.log(error)
@@ -38,9 +38,8 @@ accion_boton_actualizar.addEventListener('click',function (evt) {
     const _fotografiaInput = document.getElementById("acfotografia");
 
     if (!isNaN(_precio)) {
-        alert("producto de categoria " + _categoria);
         if (!_fotografiaInput.files || _fotografiaInput.files.length === 0) {
-            alert("foto no obtenida");
+            alert("Foto no obtenida");
         } else {
             var fotografiaFile = _fotografiaInput.files[0];
             var extension = fotografiaFile.name.split('.').pop().toLowerCase();
@@ -49,7 +48,7 @@ accion_boton_actualizar.addEventListener('click',function (evt) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     var fotografiaBase64 = e.target.result;
-                    console.log("fotografia convertida a base64: " + fotografiaBase64);
+                    alert("Actualizando ...\nEsto puede tardar unos segundos");
                     modificarProducto(idProducto,_nombre, _precio, _categoria,fotografiaBase64);
                 };
                 reader.readAsDataURL(fotografiaFile);
@@ -66,19 +65,4 @@ function llenarformulario( nombre, precio,categoria) {
     document.getElementById('acnombre').value = nombre;
     document.getElementById('acprecio').value = precio;
     document.getElementById('categoria').value = categoria
-}
-
-function subirFotografia(idProducto,fileData){
-    axios.put(URL+'registrarFoto/'+idProducto, fileData, {
-        headers: {
-            'Content-Type': 'image/jpeg'
-        }
-    })
-    .then(function (response) {
-        console.log(response);
-        console.log('producto foto actualizado')
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
 }
