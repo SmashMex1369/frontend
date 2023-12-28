@@ -52,7 +52,7 @@ axios.get(peticion)
             datosProducto.append("nombre",producto.nombre);
             datosProducto.append("precio",producto.precio);
             datosProducto.append("categoria",producto.categoria);
-            location.href ='https://smashmex1369.github.io/frontend/HTML/ADMINISTRADOR/actualizar_admin.html'+ datosProducto.toString(); 
+            location.href ='https://smashmex1369.github.io/frontend/HTML/ADMINISTRADOR/actualizar_admin.html?'+ datosProducto.toString(); 
         });
         elementoProducto.appendChild(botonAgregarAlCarrito);
 
